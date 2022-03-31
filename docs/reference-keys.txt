@@ -1,3 +1,13 @@
 section
 the-pool-of-tears
 a-caucus-race-and-a-long-tale
+assignment-1-r-markdown-examples
+methods
+sitedescription
+data-acquisition-and-plotting-tests
+data-download
+static-data-plotter
+interactive-data-plotter
+assignment.
+dygraph-example.
+poudre-paragraph
