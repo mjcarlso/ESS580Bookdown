@@ -70,3 +70,5 @@ what-is-the-distribution-of-lake-size-in-iowa-vs.-minnesota-1
 make-an-interactive-plot-of-lakes-in-iowa-and-illinois-and-color-them-by-lake-area-in-hectares-1
 what-other-data-sources-might-we-use-to-understand-how-reservoirs-and-natural-lakes-vary-in-size-in-these-three-states-1
 assignment-1
+assignment-4-part-2-lagos-spacial-analysis
+loading-in-data-first-download-and-then-specifically-grab-the-locus-or-site-lat-longs-1

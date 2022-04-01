@@ -1,4 +1,4 @@
-# Assignment 4: LAGOS Spacial Analysis
+# Assignment 4: Part 2 LAGOS Spacial Analysis
 
 
 ```{r setup, include=FALSE}
@@ -7,179 +7,11 @@ library(sf) #Spatial package that can read and create shapefiles
 library(mapview) #Interactive maps
 library(LAGOSNE) #Lots and lots of clean lake data
 library(USAboundaries) #USA states and counties
-setwd("/Users/mjcarlson/Desktop/ESS580 Environmental Data Science/ESS580Bookdown")
+library(lubridate) #For dealing with date and time
 ```
 
 
-## Part 1 LAGOS Analysis
-
-
-### Loading in data
-
-
-### First download and then specifically grab the locus (or site lat longs)
-
-```{r data-read}
-# #Lagos download script
-#LAGOSNE::lagosne_get(dest_folder = LAGOSNE:::lagos_path())
-
-
-#Load in lagos
-lagos <- lagosne_load()
-
-#Grab the lake centroid info
-lake_centers <- lagos$locus
-
-
-```
-
-
-
-### Convert to spatial data
-```{r}
-#Look at the column names
-names(lake_centers)
-
-#Look at the structure
-str(lake_centers)
-
-#View the full dataset
-View(lake_centers %>% slice(1:100))
-
-spatial_lakes <- st_as_sf(lake_centers,coords=c('nhd_long','nhd_lat'),
-                          crs=4326) %>%
-  st_transform(2163)
-
-#Subset for plotting
-subset_spatial <- spatial_lakes %>%
-  slice(1:100) 
-
-subset_baser <- spatial_lakes[1:100,]
-
-#Dynamic mapviewer
-mapview(subset_spatial)
-
-```
-
-
-### Subset to only Minnesota
-
-```{r}
-states <- us_states()
-
-#Plot all the states to check if they loaded
-#mapview(states)
-minnesota <- states %>%
-  filter(name == 'Minnesota') %>%
-  st_transform(2163)
-
-#Subset lakes based on spatial position
-minnesota_lakes <- spatial_lakes[minnesota,]
-
-#Plotting the first 1000 lakes
-minnesota_lakes %>%
-  arrange(-lake_area_ha) %>%
-    slice(1:1000) %>%
-  mapview(.,zcol = 'lake_area_ha')
-```
-
-
-
-## In-Class work
-
-
-### 1) Show a map outline of Iowa and Illinois (similar to Minnesota map upstream)
-
-```{r}
-#mapview(states)
-Icombined <- states %>%
-  filter(name %in% c('Illinois', 'Iowa')) %>%
-  st_transform(2163)
-
-I_lakes <- spatial_lakes[Icombined,]
-
-#Iowa
-Iowa <- states %>%
-  filter(name == 'Iowa') %>%
-  st_transform(2163)
-
-#Illinois
-Illinois <- states %>%
-  filter(name == 'Illinois') %>%
-  st_transform(2163)
-
-#rbind states
-IA_IL<-rbind(Iowa,Illinois)
-mapview(IA_IL)
-
-```
-
-
-
-### 2) Subset LAGOS data to these sites, how many sites are in Illinois and Iowa  combined? How does this compare to Minnesota?
-
-```{r}
-illinois_lakes <- spatial_lakes[Illinois,]
-iowa_lakes <- spatial_lakes[Iowa,]
-
-#rbind lake data
-IA_IL2<-rbind(iowa_lakes, illinois_lakes)
-
-#count
-str(IA_IL2$lagoslakeid)
-str(minnesota_lakes$lagoslakeid)
-
-```
-
-There are about twice as many lakes in Minnesota, 29038, as there are in Iowa and Illinois combined, 16466.
-
-
-### 3) What is the distribution of lake size in Iowa vs. Minnesota?
-
-- Here I want to see a histogram plot with lake size on x-axis and frequency on 
-y axis (check out geom_histogram)
-
-```{r}
-ggplot(iowa_lakes, aes(x=lake_area_ha))+
-  geom_histogram()+
-  scale_x_log10()+
-  labs(title = "Iowa",
-    x="log(lake area(ha))")
-
-ggplot(minnesota_lakes, aes(x=lake_area_ha))+
-  geom_histogram()+
-  scale_x_log10()+
-  labs(title = "Minnesota",
-    x="log(lake area (ha))")
-
-```
-
-There are more larger lakes in Minnesota than in Iowa where the lakes are much smaller.
-
-
-### 4) Make an interactive plot of lakes in Iowa and Illinois and color them  by lake area in hectares
-
-```{r}
-I_lakes %>%
-  arrange(-lake_area_ha) %>%
-    slice(1:1000) %>%
-  mapview(.,zcol = 'lake_area_ha')
-
-```
-
-
-### 5) What other data sources might we use to understand how reservoirs and  natural lakes vary in size in these three states? 
-
-Using information such as the perimeter or the lake and lake depth would give another source of data to compare the sizes of the lakes.
-
-
-# Part 2 LAGOS Analysis
-
-
-## Loading in data
-
-
-### First download and then specifically grab the locus (or site lat longs)
+### Loading in data, first download and then specifically grab the locus (or site lat longs)
 ```{r data-read}
 #Lagos download script
 #lagosne_get(dest_folder = LAGOSNE:::lagos_path(),overwrite=T)
@@ -351,5 +183,4 @@ mapview(mean_spatial,zcol='log10_mean_secchi')
 ```
 
 There is not a spatial pattern in Secchi disk depths, there are some clusters of locations where there are many lakes with more than 200 observations but this has more to do with lake density than Secchi disk depths.
-
 
