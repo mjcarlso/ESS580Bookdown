@@ -6,15 +6,16 @@ library(rvest)
 library(tidyverse)
 library(lubridate)
 library(readxl)
+setwd("/Users/mjcarlson/Desktop/ESS580 Environmental Data Science/ESS580Bookdown")
 ```
 
 
-# Simple web scraping
+### Simple web scraping
 
 R can read html using either rvest, xml, or xml2 packages. Here we are going to navigate to the Center for Snow and Avalance Studies  [Website](https://snowstudies.org/archived-data/) and read a table in. This table contains links to data we want to programatically download for three sites. We don't know much about these sites, but they contain incredibly rich snow, temperature, and precip data. 
 
 
-# Assignment:
+## Assignment:
 
 1. Extract the meteorological data URLs. Here we want you to use the `rvest` package to get the URLs for the `SASP forcing` and `SBSP_forcing` meteorological datasets.
 
@@ -135,12 +136,12 @@ Hint: https://ggplot2.tidyverse.org/reference/print.ggplot.html
 ```{r, warning=FALSE,message=FALSE}
 
 #monthly_mean<-fulldata%>%
-#  group_by(month, year, site)%>%
-#  summarize(monthly_air_temp = mean(air.temp..K.))
+  group_by(month, year, site)%>%
+  summarize(monthly_air_temp = mean(air.temp..K.))
 
-#ggplot(monthly_mean, aes(x = month, y = monthly_air_temp, color = site)) +
-#  facet_wrap(~year) +
-#  geom_line()
+ggplot(monthly_mean, aes(x = month, y = monthly_air_temp, color = site)) +
+  facet_wrap(~year) +
+  geom_line()
 
 monthplot<-function(fulldata, year){
   monthlytemp<-fulldata%>%
