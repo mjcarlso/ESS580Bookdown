@@ -1,5 +1,17 @@
-# Assignment 2: Fire Data Wrangle
+---
+title: "Hayman Fire Recovery"
+author: "MJ Carlson"
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output: html_document
 
+knit: (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file = 'index',
+      output_dir='../'
+    )
+  })
+---
 
 ```{r setup, warning=F,message=F}
 library(tidyverse)
@@ -18,7 +30,7 @@ knitr::opts_knit$set(root.dir='..')
 ```{r dataread, warning=F,message=F}
 ####-----Reading in Data and Stacking it ----- ####
 #Reading in files
-files <- list.files('/Users/mjcarlson/Desktop/ESS580 Environmental Data Science/ESS580Bookdown/data_hayman',full.names=T)
+files <- list.files('data',full.names=T)
 
 
 #Read in individual data files
@@ -320,4 +332,13 @@ ggplot(ndsi_month2, aes(x=month, y=mean_ndsi, color=site))+
 ```
 
 The snowiest month on average is January. There is minimal difference in the NDSI between the burned and unburned sites, however, the unburned does have February as the snowiest month.
+
+
+## Bonus Question: Redo all problems with `spread` and `gather` using modern tidyverse syntax. 
+
+
+## Bonus Question: Use Climage Engine to pull the same data for the assignment, but updated with 2020/2021 data.
+
+
+
 

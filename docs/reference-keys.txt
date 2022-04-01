@@ -1,6 +1,4 @@
-section
-the-pool-of-tears
-a-caucus-race-and-a-long-tale
+introduction
 assignment-1-r-markdown-examples
 methods
 sitedescription
@@ -11,7 +9,6 @@ interactive-data-plotter
 assignment.
 dygraph-example.
 poudre-paragraph
-introduction
 assignment-2-fire-data-wrangle
 question-1
 question-2

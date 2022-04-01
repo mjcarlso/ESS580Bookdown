@@ -20,7 +20,7 @@ library(USAboundaries) #USA states and counties
 
 ```{r data-read}
 # #Lagos download script
-#LAGOSNE::lagosne_get(dest_folder = LAGOSNE:::lagos_path())
+LAGOSNE::lagosne_get(dest_folder = LAGOSNE:::lagos_path())
 
 
 #Load in lagos
