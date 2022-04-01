@@ -5,5 +5,8 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# 
+# Introduction
+
+This is a book of all the assignments done in Introduction to Environmental 
+Data Science (ESS 580A-7).
 
