@@ -10,3 +10,30 @@ site: bookdown::bookdown_site
 This is a book of all the assignments done in Introduction to Environmental 
 Data Science (ESS 580A-7).
 
+```{r setup, warning=F, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(tidyr)
+library(dataRetrieval)
+library(dygraphs)
+library(xts)
+library(revealjs)
+library(ggthemes)
+library(lubridate)
+library(gridExtra)
+library(rvest)
+library(readxl)
+library(sf)
+library(mapview)
+library(LAGOSNE)
+library(USAboundaries)
+library(R.matlab)
+library(rnassqs)
+library(maps)
+library(mapdata)
+
+setwd("/Users/mjcarlson/Desktop/ESS580 Environmental Data Science/ESS580Bookdown")
+```
+
+

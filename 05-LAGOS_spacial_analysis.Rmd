@@ -1,14 +1,13 @@
 # Assignment 4a: LAGOS Spacial Analysis
 
-
-```{r setup, include=FALSE}
+```{r, include=F}
 library(tidyverse) # Tidy packages
 library(sf) #Spatial package that can read and create shapefiles 
 library(mapview) #Interactive maps
 library(LAGOSNE) #Lots and lots of clean lake data
 library(USAboundaries) #USA states and counties
-setwd("/Users/mjcarlson/Desktop/ESS580 Environmental Data Science/ESS580Bookdown")
 ```
+
 
 ## LAGOS Analysis
 

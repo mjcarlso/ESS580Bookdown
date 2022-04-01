@@ -1,7 +1,5 @@
 # Assignment 2: Fire Data Wrangle
-
-
-```{r setup, warning=F,message=F}
+```{r, include=F}
 library(tidyverse)
 library(tidyr)
 library(ggthemes)

@@ -10,21 +10,37 @@ site: bookdown::bookdown_site
 This is a book of all the assignments done in Introduction to Environmental 
 Data Science (ESS 580A-7).
 
-
-<!--chapter:end:index.Rmd-->
-
-# Assignment 1: R Markdown Examples
-
-```{r setup, include=FALSE}
+```{r setup, warning=F, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(tidyr)
 library(dataRetrieval)
 library(dygraphs)
 library(xts)
 library(revealjs)
+library(ggthemes)
+library(lubridate)
+library(gridExtra)
+library(rvest)
+library(readxl)
+library(sf)
+library(mapview)
+library(LAGOSNE)
+library(USAboundaries)
+library(R.matlab)
+library(rnassqs)
+library(maps)
+library(mapdata)
+
+setwd("/Users/mjcarlson/Desktop/ESS580 Environmental Data Science/ESS580Bookdown")
 ```
 
+
+
+<!--chapter:end:index.Rmd-->
+
+# Assignment 1: R Markdown Examples
 
 ## Methods
 
@@ -145,9 +161,7 @@ The **Cache la Poudre River** is a Colorado river that has headwaters in Rocky M
 <!--chapter:end:02-rmarkdown_examples.Rmd-->
 
 # Assignment 2: Fire Data Wrangle
-
-
-```{r setup, warning=F,message=F}
+```{r, include=F}
 library(tidyverse)
 library(tidyr)
 library(ggthemes)
@@ -472,8 +486,7 @@ The snowiest month on average is January. There is minimal difference in the NDS
 
 # Assignment 3: Snow Function Iteration
 
-
-```{r setup, include=FALSE}
+```{r, include=F}
 library(rvest)
 library(tidyverse)
 library(lubridate)
@@ -641,15 +654,14 @@ for (yr in years){
 
 # Assignment 4a: LAGOS Spacial Analysis
 
-
-```{r setup, include=FALSE}
+```{r, include=F}
 library(tidyverse) # Tidy packages
 library(sf) #Spatial package that can read and create shapefiles 
 library(mapview) #Interactive maps
 library(LAGOSNE) #Lots and lots of clean lake data
 library(USAboundaries) #USA states and counties
-setwd("/Users/mjcarlson/Desktop/ESS580 Environmental Data Science/ESS580Bookdown")
 ```
+
 
 ## LAGOS Analysis
 
@@ -813,8 +825,7 @@ Using information such as the perimeter or the lake and lake depth would give an
 
 # Assignment 4b: LAGOS Spacial Analysis
 
-
-```{r setup, include=FALSE}
+```{r, include=F}
 library(tidyverse) # Tidy packages
 library(sf) #Spatial package that can read and create shapefiles 
 library(mapview) #Interactive maps
@@ -825,7 +836,7 @@ library(lubridate) #For dealing with date and time
 
 
 ### Loading in data, first download and then specifically grab the locus (or site lat longs)
-```{r data-read}
+```{r}
 #Lagos download script
 #lagosne_get(dest_folder = LAGOSNE:::lagos_path(),overwrite=T)
 
@@ -1002,8 +1013,7 @@ There is not a spatial pattern in Secchi disk depths, there are some clusters of
 
 # Assignment 5: Weather Corn Regression
 
-
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(R.matlab)

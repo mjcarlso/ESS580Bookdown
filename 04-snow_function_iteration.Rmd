@@ -1,7 +1,6 @@
 # Assignment 3: Snow Function Iteration
 
-
-```{r setup, include=FALSE}
+```{r, include=F}
 library(rvest)
 library(tidyverse)
 library(lubridate)

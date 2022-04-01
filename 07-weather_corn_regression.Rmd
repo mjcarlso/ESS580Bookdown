@@ -1,7 +1,6 @@
 # Assignment 5: Weather Corn Regression
 
-
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(R.matlab)
