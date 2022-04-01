@@ -1,4 +1,4 @@
-# Assignment 4: Part 1 LAGOS Spacial Analysis
+# Assignment 4a: LAGOS Spacial Analysis
 
 
 ```{r setup, include=FALSE}
