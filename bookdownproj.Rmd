@@ -1,3 +1,56 @@
+--- 
+title: "ESS 580 Bookdown"
+author: "Madeline Carlson"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+---
+--- 
+title: "ESS 580 Bookdown"
+author: "Madeline Carlson"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+---
+
+# Introduction
+
+This is a book of all the assignments done in Introduction to Environmental 
+Data Science (ESS 580A-7).
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Assignment 1: R Markdown Examples
+
+Placeholder
+
+
+## Methods
+### SiteDescription
+### Data Acquisition and Plotting tests
+### Data Download
+### Static Data Plotter
+### Interactive Data Plotter
+## Assignment. 
+## DyGraph example. 
+## Poudre Paragraph
+
+<!--chapter:end:02-rmarkdown_examples.Rmd-->
+
+
+# Assignment 2: Fire Data Wrangle
+
+Placeholder
+
+
+## Question 1) 
+## Question 2 
+## Q3
+## Question 4
+## Question 5) 
+
+<!--chapter:end:03-fire_data_wrangle.Rmd-->
+
 # Assignment 3: Snow Function Iteration
 
 
@@ -164,4 +217,71 @@ for (yr in years){
   monthplot(fulldata, year)
 }
 ```
+
+
+<!--chapter:end:04-snow_function_iteration.Rmd-->
+
+
+# Assignment 4: Part 1 LAGOS Spacial Analysis
+
+Placeholder
+
+
+## LAGOS Analysis
+### Loading in data, first download and then specifically grab the locus (or site lat longs)
+### Convert to spatial data
+### Subset to only Minnesota
+## In-Class work
+### 1) Show a map outline of Iowa and Illinois (similar to Minnesota map upstream)
+### 2) Subset LAGOS data to these sites, how many sites are in Illinois and Iowa  combined? How does this compare to Minnesota?
+### 3) What is the distribution of lake size in Iowa vs. Minnesota?
+### 4) Make an interactive plot of lakes in Iowa and Illinois and color them  by lake area in hectares
+### 5) What other data sources might we use to understand how reservoirs and  natural lakes vary in size in these three states? 
+
+<!--chapter:end:05-LAGOS_spacial_analysis.Rmd-->
+
+
+# Assignment 4: Part 2 LAGOS Spacial Analysis
+
+Placeholder
+
+
+### Loading in data, first download and then specifically grab the locus (or site lat longs)
+### Subset columns nutr to only keep key info that we want
+### Keep sites with at least 200 observations 
+### Join water quality data to spatial data
+### Mean Chl_a map
+## Class work
+### 1) What is the correlation between Secchi Disk Depth and Chlorophyll a for  sites with at least 200 observations?
+### Why might this be the case? 
+### 2) What states have the most data? 
+### 2a) First you will need to make a lagos spatial dataset that has the total  number of counts per site.
+### 2b) Second, you will need to join this point dataset to the us_boundaries  data. 
+### 2c) Then you will want to group by state and sum all the observations in  that state and arrange that data from most to least toatl observations per state. 
+### 3 Is there a spatial pattern in Secchi disk depth for lakes with at least 200  observations?
+
+<!--chapter:end:06-LAGOS_spacial_analysis.Rmd-->
+
+
+# Assignment 5: Weather Corn Regression
+
+Placeholder
+
+
+## Weather Data Analysis
+### Load the PRISM daily maximum temperatures
+## Temperature trends
+### Summer temperature trends: Winneshiek County
+### Winter Temperatures - Winneshiek County
+### Multiple regression -- Quadratic time trend
+### Download NASS corn yield data
+## Assignment
+### Question 1a: Extract Winneshiek County corn yields, fit a linear time trend, make a plot. Is there a significant time trend?
+### Question 1b: Fit a quadratic time trend (i.e., year + year^2) and make a plot. Is there evidence for slowing yield growth? 
+### Question 2 -- Time Series: Let's analyze the relationship between temperature and yields for the Winneshiek County time series. Use data on yield and summer avg Tmax. Is adding year or Tmax^2 to your model helpful? Make a plot and interpret the results.
+### Question 3 -- Cross-Section: Analyze the relationship between temperature and yield across all counties in 2018. Is there a relationship? Interpret the results.
+### Question 4 -- Panel: One way to leverage multiple time series is to group all data into what is called a "panel" regression. Convert the county ID code ("countyfp" or "county_ansi") into factor using as.factor, then include this variable in a regression using all counties' yield and summer temperature data. How does the significance of your temperature coefficients (Tmax, Tmax^2) change? Make a plot comparing actual and fitted yields and interpret the results of your model.
+### Question 5 -- Soybeans: Download NASS data on soybean yields and explore either a time series relationship for a given county, the cross-sectional relationship for a given year, or a panel across all counties and years.
+
+<!--chapter:end:07-weather_corn_regression.Rmd-->
 
